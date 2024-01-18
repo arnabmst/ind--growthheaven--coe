@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <frameHeight>600</frameHeight>
+    <hasSidebar>false</hasSidebar>
+    <label>Companies</label>
+    <motif>Custom61: Castle</motif>
+    <url>https://khalidcloudkaptan--atanu.sandbox.lightning.force.com/lightning/o/Account/list?filterName=00BD300000223lGMAQ</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

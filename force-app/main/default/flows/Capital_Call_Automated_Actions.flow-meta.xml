@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <decisions>
+        <description>Check Action</description>
+        <name>Check_Action</name>
+        <label>Check Action</label>
+        <locationX>578</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Capital_Received</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ActionType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Capital Received</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Capital_Recieved_Status</targetReference>
+            </connector>
+            <label>Capital Received</label>
+        </rules>
+        <rules>
+            <name>Cancel</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ActionType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancel Capital Call</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Cancel_Status</targetReference>
+            </connector>
+            <label>Cancel</label>
+        </rules>
+        <rules>
+            <name>Follow_up_email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ActionType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Follow Up Email to LP</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Follow_Up_Email_Sent_Successfully</targetReference>
+            </connector>
+            <label>Follow up email</label>
+        </rules>
+        <rules>
+            <name>Email_To_Limited_Partner</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ActionType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email To Limited Partner</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Contacted_LP_Status</targetReference>
+            </connector>
+            <label>Email To Limited Partner</label>
+        </rules>
+    </decisions>
+    <description>Capital Call Automated Actions</description>
+    <environments>Default</environments>
+    <interviewLabel>Capital Call Automated Actions {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Capital Call Automated Actions</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Get Capital Call Record</description>
+        <name>Get_Capital_Call_Record</name>
+        <label>Get Capital Call Record</label>
+        <locationX>578</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Action</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CapitalCallId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>FinServ__FinancialAccountTransaction__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update Capital cancel Status</description>
+        <name>Update_Cancel_Status</name>
+        <label>Update Cancel Status</label>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CapitalCallId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>FinServ__TransactionStatus__c</field>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </inputAssignments>
+        <object>FinServ__FinancialAccountTransaction__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Capital Recieved Status</description>
+        <name>Update_Capital_Recieved_Status</name>
+        <label>Update Capital Recieved Status</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CapitalCallId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>FinServ__TransactionStatus__c</field>
+            <value>
+                <stringValue>Capital Received</stringValue>
+            </value>
+        </inputAssignments>
+        <object>FinServ__FinancialAccountTransaction__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Contacted LP Status</description>
+        <name>Update_Contacted_LP_Status</name>
+        <label>Update Contacted LP Status</label>
+        <locationX>842</locationX>
+        <locationY>350</locationY>
+        <connector>
+            <targetReference>Email_Sent_Successfull</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CapitalCallId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>FinServ__TransactionStatus__c</field>
+            <value>
+                <stringValue>Contacted LP</stringValue>
+            </value>
+        </inputAssignments>
+        <object>FinServ__FinancialAccountTransaction__c</object>
+    </recordUpdates>
+    <screens>
+        <description>Email Sent Successfully</description>
+        <name>Email_Sent_Successfull</name>
+        <label>Email Sent Successfully</label>
+        <locationX>842</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Copy_1_of_EmailSent</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: rgb(10, 79, 20);&quot;&gt;Email has been sent to the Limited Partner.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <description>Follow Up Email Sent Successfully</description>
+        <name>Follow_Up_Email_Sent_Successfully</name>
+        <label>Follow Up Email Sent Successfully</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>EmailSent</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: rgb(10, 79, 20);&quot;&gt;Follow Up email has been sent to the Limited Partner.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>452</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Capital_Call_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Required Action Type</description>
+        <name>ActionType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Id of the Capital Call record</description>
+        <name>CapitalCallId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

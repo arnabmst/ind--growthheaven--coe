@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Entered_past_investment_page__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>limited partner leads will check this field if they want  to see past investment.</description>
+    <externalId>false</externalId>
+    <label>Entered past investment page</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

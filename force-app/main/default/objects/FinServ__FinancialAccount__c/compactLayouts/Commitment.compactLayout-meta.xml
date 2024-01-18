@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commitment</fullName>
+    <fields>Name</fields>
+    <fields>FinServ__TargetLimit__c</fields>
+    <fields>FinServ__RecordTypeName__c</fields>
+    <fields>FinServ__Balance__c</fields>
+    <fields>FinServ__TotalHoldAmount__c</fields>
+    <label>Commitment</label>
+</CompactLayout>

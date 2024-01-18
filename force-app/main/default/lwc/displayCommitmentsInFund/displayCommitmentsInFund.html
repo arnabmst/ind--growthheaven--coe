@@ -1,0 +1,22 @@
+<!-- @Developer : Syed Shabbar Shahzad
+@Description : Fetches Commitments and display in a datatable
+@Last Modified Date: 09-01-2024
+@Last Modified By : syed.shabbar@cloudkaptan.com
+-->
+<template>
+    <div if:true={isLoading} class="slds-is-relative"> 
+        <lightning-spinner alternative-text="Loading. Please wait." variant="brand">
+        </lightning-spinner>
+    </div> 
+    <div if:false={isLoading} class="slds table slds-scrollable_y" style="height:400px; margin:10px; margin-bottom:15px;">
+        <lightning-datatable 
+                data={commitmentList} 
+                columns={columns} 
+                show-row-number-column="true" 
+                key-field="Id" 
+                hide-checkbox-column="true"
+                onrowaction={openCommitment}
+                class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+        </lightning-datatable>
+    </div>
+</template>

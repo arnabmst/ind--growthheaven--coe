@@ -1,0 +1,76 @@
+####################################################
+########## Author:          Rahul Gupta ############
+########## Created At:      07-11-2022  ############
+########## Last Updated At: 25-05-2023  ############
+####################################################
+
+name: "Deploy Pull Request"
+
+# setting the trigger point of this workflow
+on:
+  # workflow will run on pull request generation
+  pull_request_review:
+    types:
+      - submitted
+    branches: [staging, uat, subham, ayush, dataupload, preprod, production]
+
+  # run workflow from "Actions" tab
+  workflow_dispatch:
+
+# define the jobs
+jobs:
+
+  # deploy the source to the target
+  deploy:
+    name: "Deploy"
+    runs-on: ubuntu-latest
+    if: github.event.review.state == 'approved'
+
+    # setting environment variables used in different scripts
+    env:
+      ORG__ALIAS: "Target"
+      ORG__SECRET_URL: ""
+      AYUSH_DEV_ORG_SECRET_URL: ${{ secrets.AYUSH_DEV_ORG_SECRET_URL }}
+      SUBHAM_DEV_ORG_SECRET_URL: ${{ secrets.SUBHAM_DEV_ORG_SECRET_URL }}
+      STAGING_SECRET_URL: ${{ secrets.STAGING_SECRET_URL }}
+      UAT_SECRET_URL: ${{ secrets.UAT_SECRET_URL }}
+      PREPROD_SECRET_URL: ${{ secrets.PREPROD_SECRET_URL }}
+      PRODUCTION_SECRET_URL: ${{ secrets.PRODUCTION_SECRET_URL }}
+      BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
+      COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+
+    # pass docker hub credentials to load the dependencies
+    container:
+      image: ckrahulgupta/coe-automated-deployment-image:latest
+    
+    # define the steps for validation
+    steps:
+
+      # perform code checkout so that github actions can access it
+      - name: "Code Checkout"
+        uses: actions/checkout@v2
+
+      # process initialization
+      - name: "Initialize Deployment"
+        run: chmod +x ./.github/scripts/coe--init-deploy.sh && ./.github/scripts/coe--init-deploy.sh
+        shell: bash
+
+      # authenticate source org
+      - name: "Authenticate Org"
+        run: chmod +x ./.github/scripts/coe--authenticate-org.sh && ./.github/scripts/coe--authenticate-org.sh
+        shell: bash
+
+      # migrate data
+      - name: "Migrate Metadata"
+        run: chmod +x ./.github/scripts/coe--metadata-migrate.sh && ./.github/scripts/coe--metadata-migrate.sh
+        shell: bash
+
+      # generate delta packages
+      - name: "Generate Delta Packages"
+        run: chmod +x ./.github/scripts/coe--generate-delta-packages.sh && ./.github/scripts/coe--generate-delta-packages.sh
+        shell: bash
+      
+      # validate components
+      - name: "Deploy Components"
+        run: chmod +x ./.github/scripts/coe--deploy-components.sh && ./.github/scripts/coe--deploy-components.sh
+        shell: bash

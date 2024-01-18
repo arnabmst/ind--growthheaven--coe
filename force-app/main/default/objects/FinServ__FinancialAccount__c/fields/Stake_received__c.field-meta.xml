@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stake_received__c</fullName>
+    <description>percentage ownership or equity stake that the VC fund acquires in a portfolio company as a result of its investment.</description>
+    <externalId>false</externalId>
+    <label>% Stake received</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

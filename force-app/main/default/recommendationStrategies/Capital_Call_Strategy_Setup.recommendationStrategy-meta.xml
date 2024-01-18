@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecommendationStrategy xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contextRecordType>FinServ__FinancialAccountTransaction__c</contextRecordType>
+    <description>Strategy Setup for Capital Call to show required buttons on each stage</description>
+    <invocableAction>
+        <description>Generate Capital Call suggested Actions on stages</description>
+        <label>Generate Capital Call suggested Actions</label>
+        <name>Generate_Capital_Call_suggested_Actions</name>
+        <action>CapitalCallActionRecommendationGenerator</action>
+        <argument>
+            <name>CapitalCallId</name>
+            <value>$Record.Id</value>
+        </argument>
+        <isGenerator>true</isGenerator>
+        <type>apex</type>
+    </invocableAction>
+    <label>Capital Call Strategy Setup</label>
+    <map>
+        <childNode>Generate_Capital_Call_suggested_Actions</childNode>
+        <label>Map Record Id</label>
+        <name>Map_Record_Id</name>
+        <mapExpression>
+            <expression>RelatedRecordId__c</expression>
+            <name>CapitalCallId</name>
+            <type>Text</type>
+        </mapExpression>
+        <mapExpression>
+            <expression>Name</expression>
+            <name>ActionType</name>
+            <type>Text</type>
+        </mapExpression>
+    </map>
+    <union>
+        <childNode>Map_Record_Id</childNode>
+        <label>Output</label>
+        <name>Output_29fb4ab29be4460dbcccdbf4a7f3f0fa</name>
+    </union>
+</RecommendationStrategy>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Raised_Funding_already__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>It is a checkbox field for investor about fund raised already or not.</description>
+    <externalId>false</externalId>
+    <label>Raised Funding already</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <frameHeight>600</frameHeight>
+    <hasSidebar>true</hasSidebar>
+    <label>Funds</label>
+    <motif>Custom41: Stack of Cash</motif>
+    <url>https://khalidcloudkaptan--atanu.sandbox.lightning.force.com/lightning/o/FinServ__FinancialAccount__c/list?filterName=00BD300000222J9MAI</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

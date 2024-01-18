@@ -1,0 +1,29 @@
+{
+    "objects":[
+        {
+            "query":"Select Id,Name,FinServ__AccountNameFormat__c,FinServ__AppName__c,FinServ__AutoCreateInverseRole__c,FinServ__DefaultIndividualType__c,FinServ__DependentPackageNS__c,FinServ__AutocreateIndividualAccount__c,FinServ__LeadConversionBatchSize__c,FinServ__MultipleRelationshipGroups__c,FinServ__PageLayoutApiVersion__c,FinServ__RestrictACRRecordVisibility__c,FinServ__ShowDetailedError__c,FinServ__SyncIndividualSystemFields__c from FinServ__IndustriesAppConfig__c",
+            "operation":"Upsert",
+            "externalId":"Name"
+        },
+        {
+            "query":"Select Id,Name, FinServ__Active__c, FinServ__FromField__c, FinServ__FromObject__c, FinServ__FromRecordType__c, FinServ__LookupField__c, FinServ__Namespace__c, FinServ__RollupOperation__c, FinServ__ToField__c, FinServ__ToObject__c, FinServ__UpdateOnChange__c, FinServ__WhereClause__c,External_Id__c from FinServ__RollupByLookupConfig__c where FinServ__Active__c =true",
+            "operation":"Upsert",
+            "externalId":"External_Id__c"
+        },
+        {
+            "query":"select Id,FinServ__FieldName__c, FinServ__FieldValue__c, FinServ__Operator__c, FinServ__RollupByLookupConfig__c,Name,External_Id__c from FinServ__RollupByLookupFilterCriteria__c where External_Id__c != null",
+            "operation":"Upsert",
+            "externalId":"External_Id__c"
+        },
+        {
+            "query":"SELECT Id, Name, FinServ__EnableAARInverseRoleUpdate__c, FinServ__EnableBusinessReferralsMade__c, FinServ__EnableGroupRecordRollups__c, FinServ__EnableRollupSummary__c, FinServ__GroupRecordRollupTimestamp__c, FinServ__InteractionUpdateFrequency__c, FinServ__ReferrerScoreCalcEnabled__c, FinServ__RejectedReferralStatus__c, FinServ__RollupSummaryTimestamp__c FROM FinServ__WealthAppConfig__c",
+            "operation":"Upsert",
+            "externalId":"Name"
+        },
+        {
+            "query":"SELECT Id, Name, FinServ__Enable__c FROM FinServ__UsePersonAccount__c",
+            "operation":"Upsert",
+            "externalId":"Name"
+        }
+    ]
+}

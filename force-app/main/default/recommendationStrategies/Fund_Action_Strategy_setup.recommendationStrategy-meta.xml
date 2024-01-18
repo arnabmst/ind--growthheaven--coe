@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecommendationStrategy xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contextRecordType>FinServ__FinancialAccount__c</contextRecordType>
+    <description>Fund Action Strategy setup</description>
+    <invocableAction>
+        <description>Recommend Commitment for capital call</description>
+        <label>Recommend Commitment</label>
+        <name>Recommend_Commitment</name>
+        <action>CaptitalCallRecommendationGenerator</action>
+        <argument>
+            <name>FundId</name>
+            <value>$Record.Id</value>
+        </argument>
+        <isGenerator>true</isGenerator>
+        <type>apex</type>
+    </invocableAction>
+    <label>Fund Action Strategy setup</label>
+    <map>
+        <childNode>Recommend_Commitment</childNode>
+        <description>Map Fields for flow</description>
+        <label>Map Fields for flow</label>
+        <name>Map_Fields_for_flow</name>
+        <mapExpression>
+            <expression>RelatedRecordId__c</expression>
+            <name>CommitmentId</name>
+            <type>Text</type>
+        </mapExpression>
+    </map>
+    <union>
+        <childNode>Map_Fields_for_flow</childNode>
+        <label>Output</label>
+        <name>Output_16c5a03a59974665970d60a7acd2903c</name>
+    </union>
+</RecommendationStrategy>

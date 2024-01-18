@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agreed_to_Terms_Conditions__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox field reagarding terms and condition.</description>
+    <externalId>false</externalId>
+    <label>Agreed to Terms &amp; Conditions</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>
