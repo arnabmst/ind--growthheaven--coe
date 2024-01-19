@@ -10,7 +10,7 @@ name: "Validate Pull Requests"
 on:
   # workflow will run on pull request generation
   pull_request:
-    branches: [staging, uat, subham, ayush, dataupload, preprod, production]
+    branches: [targetBranch,sourceBranch]
     
   # run workflow from "Actions" tab
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
 
     # pass docker hub credentials to load the dependencies
     container:
-      image: ckrahulgupta/coe-automated-deployment-image:latest
+      image: ckrahulgupta/cfa-automated-deployment-image:latest
 
     # define the steps for validation
     steps:

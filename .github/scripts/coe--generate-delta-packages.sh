@@ -1,5 +1,5 @@
 # Evaluates the difference from the 2 branches and generates the package.xml
-git config --global --add safe.directory /__w/automated-deployment/automated-deployment
+git config --global --add safe.directory /__w/ind--growthheaven--coe/ind--growthheaven--coe
 git fetch origin "+refs/heads/*:refs/remotes/origin/*"
 
 # checking if there is any change in force-app folder and update the environment variable in order to avoid the exit command
@@ -17,7 +17,7 @@ git fetch origin "+refs/heads/*:refs/remotes/origin/*"
 
 export HOME=/root
 
-git config --global --add safe.directory /__w/automated-deployment/automated-deployment
+git config --global --add safe.directory /__w/ind--growthheaven--coe/ind--growthheaven--coe
 
 sfdx sgd:source:delta -a 58 --from "origin/$BASE_BRANCH" --output . -i manifest/mdapi/.sgdignore
 
