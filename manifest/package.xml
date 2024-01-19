@@ -4,6 +4,8 @@
         <members>VCFundUtility</members>
         <members>CapitalCallActionRecommendationGenerator</members>
         <members>CaptitalCallRecommendationGenerator</members>
+        <members>CapitalActionRecommendationGeneratorTest</members>
+        <members>CaptitalCallRecommendationGeneratorTest</members>
         <name>ApexClass</name>
     </types>
     <types>

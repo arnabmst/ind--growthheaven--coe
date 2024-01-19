@@ -81,6 +81,14 @@ global class CapitalCallActionRecommendationGenerator {
         }
         return outputs; 
     }
+    global static List<List<Recommendation>> getCapitalCallsId(String Id){
+        List<CapitalCallActionRecommendationGenerateRequest > inputRequests = new List< CapitalCallActionRecommendationGenerateRequest>();
+        CapitalCallActionRecommendationGenerateRequest req = new CapitalCallActionRecommendationGenerateRequest();
+        req.CapitalCallId = Id;
+        inputRequests.add(req);
+        List<List<Recommendation>> result = CapitalCallActionRecommendationGenerator.getCapitalCalls(inputRequests);
+        return result;
+    }
     global class CapitalCallActionRecommendationGenerateRequest {
         @InvocableVariable(label='CapitalCallId')
         global String CapitalCallId;

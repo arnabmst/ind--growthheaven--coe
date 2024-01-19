@@ -37,6 +37,14 @@ global class CaptitalCallRecommendationGenerator {
         }
         return outputs; 
     }
+    global static List<List<Recommendation>> getCommitmentsById(String Id){
+        List<CapitalCallActionRecommendationGenerateRequest > inputRequests = new List< CapitalCallActionRecommendationGenerateRequest>();
+        CapitalCallActionRecommendationGenerateRequest req = new CapitalCallActionRecommendationGenerateRequest();
+        req.FundId = Id;
+        inputRequests.add(req);
+        List<List<Recommendation>> result = CaptitalCallRecommendationGenerator.getcommitments(inputRequests);
+        return result;
+    }
     global class CapitalCallActionRecommendationGenerateRequest {
         @InvocableVariable(label='FundId')
         global String FundId;
