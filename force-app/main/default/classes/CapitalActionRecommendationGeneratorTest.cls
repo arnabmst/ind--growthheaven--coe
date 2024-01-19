@@ -8,7 +8,7 @@
 @isTest
 private class CapitalActionRecommendationGeneratorTest {
     @testSetup static void setup() {
-        // Create common test account
+        // Create common test accounts
         List<FinServ__FinancialAccountTransaction__c> testTrans = new List<FinServ__FinancialAccountTransaction__c>();
         FinServ__FinancialAccountTransaction__c testTransObj = new FinServ__FinancialAccountTransaction__c();
         testTransObj.FinServ__TransactionStatus__c = 'New';
