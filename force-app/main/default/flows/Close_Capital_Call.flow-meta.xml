@@ -481,7 +481,6 @@
             <dataType>Currency</dataType>
             <fieldText>Amount received</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
             <validationRule>
