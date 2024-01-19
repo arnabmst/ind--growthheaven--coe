@@ -120,8 +120,7 @@
         <members>Initiate_Capital_Call_Fund</members>
         <name>Flow</name>
     </types>
-    </types>
-        <types>
+    <types>
         <members>Account.Generate_Agreement</members>
         <name>WebLink</name>
     </types>
