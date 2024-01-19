@@ -1,26 +1,10 @@
 cat ./.github/asciiart/ascii--deployment.txt
 
-if [[ $BASE_BRANCH == "ayush" ]] 
+if [[ $BASE_BRANCH == "master" ]] 
 then
-echo "ORG__SECRET_URL=$AYUSH_DEV_ORG_SECRET_URL" >> $GITHUB_ENV
+echo "ORG__SECRET_URL=$COE_DEV_ORG_SECRET_URL" >> $GITHUB_ENV
 
-elif [[ $BASE_BRANCH == "subham" ]]
+elif [[ $BASE_BRANCH == "sourceBranch" ]]
 then
-echo "ORG__SECRET_URL=$SUBHAM_DEV_ORG_SECRET_URL" >> $GITHUB_ENV
-
-elif [[ $BASE_BRANCH == "staging" ]]
-then
-echo "ORG__SECRET_URL=$STAGING_SECRET_URL" >> $GITHUB_ENV
-
-elif [[ $BASE_BRANCH == "uat" ]]
-then
-echo "ORG__SECRET_URL=$UAT_SECRET_URL" >> $GITHUB_ENV
-
-elif [[ $BASE_BRANCH == "preprod" ]]
-then
-echo "ORG__SECRET_URL=$PREPROD_SECRET_URL" >> $GITHUB_ENV
-
-elif [[ $BASE_BRANCH == "production" ]]
-then
-echo "ORG__SECRET_URL=$PRODUCTION_SECRET_URL" >> $GITHUB_ENV
+echo "ORG__SECRET_URL=$COE_DEV_ORG_SECRET_URL" >> $GITHUB_ENV
 fi

@@ -12,7 +12,7 @@ on:
   pull_request_review:
     types:
       - submitted
-    branches: [staging, uat, subham, ayush, dataupload, preprod, production]
+    branches: [master,sourceBranch]
 
   # run workflow from "Actions" tab
   workflow_dispatch:
@@ -30,18 +30,13 @@ jobs:
     env:
       ORG__ALIAS: "Target"
       ORG__SECRET_URL: ""
-      AYUSH_DEV_ORG_SECRET_URL: ${{ secrets.AYUSH_DEV_ORG_SECRET_URL }}
-      SUBHAM_DEV_ORG_SECRET_URL: ${{ secrets.SUBHAM_DEV_ORG_SECRET_URL }}
-      STAGING_SECRET_URL: ${{ secrets.STAGING_SECRET_URL }}
-      UAT_SECRET_URL: ${{ secrets.UAT_SECRET_URL }}
-      PREPROD_SECRET_URL: ${{ secrets.PREPROD_SECRET_URL }}
-      PRODUCTION_SECRET_URL: ${{ secrets.PRODUCTION_SECRET_URL }}
+      COE_DEV_ORG_SECRET_URL: ${{ secrets.COE_DEV_ORG_SECRET_URL }}
       BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
       COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
 
     # pass docker hub credentials to load the dependencies
     container:
-      image: ckrahulgupta/coe-automated-deployment-image:latest
+      image: ckrahulgupta/cfa-automated-deployment-image:latest
     
     # define the steps for validation
     steps:
@@ -61,9 +56,9 @@ jobs:
         shell: bash
 
       # migrate data
-      - name: "Migrate Metadata"
-        run: chmod +x ./.github/scripts/coe--metadata-migrate.sh && ./.github/scripts/coe--metadata-migrate.sh
-        shell: bash
+      #- name: "Migrate Metadata"
+      #  run: chmod +x ./.github/scripts/coe--metadata-migrate.sh && ./.github/scripts/coe--metadata-migrate.sh
+      #  shell: bash
 
       # generate delta packages
       - name: "Generate Delta Packages"

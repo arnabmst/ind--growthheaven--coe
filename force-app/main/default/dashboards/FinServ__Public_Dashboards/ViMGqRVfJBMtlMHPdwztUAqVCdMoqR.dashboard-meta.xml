@@ -281,7 +281,6 @@
     </dashboardGridLayout>
     <dashboardType>SpecifiedUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <owner>coe@cloudkaptan.com</owner>
     <runningUser>coe@cloudkaptan.com</runningUser>
     <textColor>#000000</textColor>
     <title>Home Page</title>

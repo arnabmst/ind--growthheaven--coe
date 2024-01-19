@@ -1,0 +1,5 @@
+## Ignore file for sgd (delta deployments)
+**/audience/*
+**/installedPackage/*
+.github/workflows
+force-app/main/default/portals

@@ -131,7 +131,6 @@
             <dataType>Currency</dataType>
             <fieldText>Enter the Amount :</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
