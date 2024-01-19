@@ -56,9 +56,9 @@ jobs:
         shell: bash
 
       # migrate data
-      - name: "Migrate Metadata"
-        run: chmod +x ./.github/scripts/coe--metadata-migrate.sh && ./.github/scripts/coe--metadata-migrate.sh
-        shell: bash
+      #- name: "Migrate Metadata"
+      #  run: chmod +x ./.github/scripts/coe--metadata-migrate.sh && ./.github/scripts/coe--metadata-migrate.sh
+      #  shell: bash
 
       # generate delta packages
       - name: "Generate Delta Packages"
