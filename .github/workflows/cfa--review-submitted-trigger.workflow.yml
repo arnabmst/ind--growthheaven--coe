@@ -12,7 +12,7 @@ on:
   pull_request_review:
     types:
       - submitted
-    branches: [ind--growthheaven--coe,sourceBranch]
+    branches: [master,sourceBranch]
 
   # run workflow from "Actions" tab
   workflow_dispatch:
