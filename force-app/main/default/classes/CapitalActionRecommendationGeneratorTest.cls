@@ -1,14 +1,7 @@
-/**
- * @description       : 
- * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
- * @group             : 
- * @last modified on  : 01-19-2024
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
-**/
 @isTest
 private class CapitalActionRecommendationGeneratorTest {
     @testSetup static void setup() {
-        // Create common test account65432
+        // Create common test accounts
         List<FinServ__FinancialAccountTransaction__c> testTrans = new List<FinServ__FinancialAccountTransaction__c>();
         FinServ__FinancialAccountTransaction__c testTransObj = new FinServ__FinancialAccountTransaction__c();
         testTransObj.FinServ__TransactionStatus__c = 'New';

@@ -445,20 +445,6 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>recordId</name>
-                    <value>recordId</value>
-                </componentInstanceProperties>
-                <componentName>displayCommitmentsInFund</componentName>
-                <identifier>c_displayCommitmentsInFund</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-9ab9f308-1523-4515-91cc-afbc6b3d358c</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
                     <name>actionNames</name>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -534,20 +520,6 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>flexipage_tab2</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-9ab9f308-1523-4515-91cc-afbc6b3d358c</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Commitment</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-                <identifier>flexipage_tab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
