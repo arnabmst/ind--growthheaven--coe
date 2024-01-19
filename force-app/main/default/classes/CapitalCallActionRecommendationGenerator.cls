@@ -1,10 +1,3 @@
-/**
- * @description       : 
- * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
- * @group             : 
- * @last modified on  : 01-19-2024
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
-**/
 global class CapitalCallActionRecommendationGenerator {
     @InvocableMethod(
         label='Capital Call Action Recommendation Generator'
@@ -22,7 +15,7 @@ global class CapitalCallActionRecommendationGenerator {
                 if (CapitalCalls!=null && String.isNotBlank(CapitalCalls[0].FinServ__TransactionStatus__c))
                 {
                     if(CapitalCalls[0].FinServ__TransactionStatus__c == 'New'){
-                        //Email to LP's
+                        //Email to LP
                         Recommendation rec1 = new Recommendation(
                         Name = 'Email To Limited Partner',
                         Description = 'Email To Limited Partner',
